@@ -2,7 +2,7 @@
 pragma solidity ^0.8.29;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract MyToken is ERC20, ReentrancyGuard {
     address public vestingContract;
