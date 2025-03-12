@@ -1,37 +1,49 @@
-// pages/index.tsx
-import Link from "next/link";
+import { NextPage } from "next";
+import Head from "next/head";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import Hero from "../components/home/Hero";
+import TokenInfo from "../components/home/TokenInfo";
+import Timeline from "../components/home/Timeline";
+import Team from "../components/home/Team";
+import Roadmap from "../components/home/Roadmap";
+import FAQ from "../components/home/FAQ";
 
-export default function Home() {
+/**
+ * Home page component - Landing page for the ICO platform
+ */
+const Home: NextPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <header className="bg-blue-600 text-white py-20 text-center">
-        <h1 className="text-5xl font-bold mb-4">Lanza tu ICO en minutos</h1>
-        <p className="text-xl mb-8">
-          Crea, gestiona y distribuye tokens de forma segura
-        </p>
-        <Link href="/create">
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50">
-            Comenzar ahora →
-          </button>
-        </Link>
-      </header>
+    <>
+      <Head>
+        <title>Encrypia - Advanced ICO Platform</title>
+        <meta
+          name="description"
+          content="Participate in our ICO and be part of the next generation blockchain ecosystem"
+        />
+        <meta
+          name="keywords"
+          content="ico, token sale, blockchain, crypto, investment"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      {/* Features Section */}
-      <section className="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-4">Token Personalizable</h3>
-          <p>Define nombre, supply, tax y más.</p>
-        </div>
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-4">Vesting Automático</h3>
-          <p>Protege a tu equipo e inversores.</p>
-        </div>
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold mb-4">Integración con DEX</h3>
-          <p>Añade liquidez a Uniswap/PancakeSwap.</p>
-        </div>
-      </section>
-    </div>
+      <div className="bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen">
+        <Header />
+
+        <main className="pb-20">
+          <Hero />
+          <TokenInfo />
+          <Timeline />
+          <Roadmap />
+          <Team />
+          <FAQ />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
-}
+};
+
+export default Home;

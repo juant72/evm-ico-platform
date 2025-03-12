@@ -1,0 +1,277 @@
+/* 
+  Component-specific styles that complement Tailwind utilities.
+  These styles are for complex components that benefit from CSS beyond utilities.
+*/
+
+/* Button Styles */
+.btn {
+    @apply inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md 
+           transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-500;
+  }
+  
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-gray-500 hover:border-white text-gray-300 hover:text-white focus:ring-gray-400;
+  }
+  
+  .btn-sm {
+    @apply px-3 py-2 text-sm;
+  }
+  
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg;
+  }
+  
+  .card-header {
+    @apply p-6 border-b border-gray-700;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .card-footer {
+    @apply p-6 border-t border-gray-700;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    @apply mb-6;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-300 mb-2;
+  }
+  
+  .form-input {
+    @apply block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 
+           focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-white;
+  }
+  
+  .form-error {
+    @apply mt-2 text-sm text-red-400;
+  }
+  
+  .form-help {
+    @apply mt-2 text-sm text-gray-400;
+  }
+  
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  /* Alert Styles */
+  .alert {
+    @apply rounded-md p-4 mb-6;
+  }
+  
+  .alert-info {
+    @apply bg-blue-900 text-blue-200;
+  }
+  
+  .alert-success {
+    @apply bg-green-900 text-green-200;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-900 text-yellow-200;
+  }
+  
+  .alert-danger {
+    @apply bg-red-900 text-red-200;
+  }
+  
+  /* Progress bar */
+  .progress-bar {
+    @apply w-full h-2 bg-gray-700 rounded-full overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full transition-all duration-500 ease-out;
+  }
+  
+  /* Token card styles */
+  .token-card {
+    @apply bg-gray-800 border border-gray-700 rounded-xl p-6 transition-all hover:border-blue-500;
+  }
+  
+  .token-price {
+    @apply text-2xl font-bold text-white mb-1;
+  }
+  
+  .token-price-change {
+    @apply text-sm font-medium;
+  }
+  
+  .token-price-up {
+    @apply text-green-400;
+  }
+  
+  .token-price-down {
+    @apply text-red-400;
+  }
+  
+  /* Stats styles */
+  .stats-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6;
+  }
+  
+  .stat-card {
+    @apply bg-gray-800 border border-gray-700 rounded-xl p-6;
+  }
+  
+  .stat-title {
+    @apply text-sm text-gray-400 uppercase tracking-wider;
+  }
+  
+  .stat-value {
+    @apply text-2xl font-bold text-white mt-2;
+  }
+  
+  .stat-desc {
+    @apply text-sm text-gray-400 mt-2;
+  }
+  
+  /* Countdown timer */
+  .countdown {
+    @apply grid grid-cols-4 gap-2 sm:gap-4 text-center;
+  }
+  
+  .countdown-item {
+    @apply flex flex-col bg-gray-800 rounded-lg p-3;
+  }
+  
+  .countdown-value {
+    @apply text-2xl sm:text-3xl font-bold text-white;
+  }
+  
+  .countdown-label {
+    @apply text-xs text-gray-400 uppercase tracking-wider mt-1;
+  }
+  
+  /* Governance styles */
+  .proposal-card {
+    @apply bg-gray-800 border border-gray-700 rounded-xl p-6 transition-all hover:border-blue-500;
+  }
+  
+  .vote-btn {
+    @apply inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  
+  .vote-btn-for {
+    @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
+  }
+  
+  .vote-btn-against {
+    @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+  }
+  
+  .vote-progress {
+    @apply h-2 rounded-full overflow-hidden mt-4;
+  }
+  
+  .vote-progress-for {
+    @apply bg-green-500 h-full;
+  }
+  
+  .vote-progress-against {
+    @apply bg-red-500 h-full;
+  }
+  
+  /* Tooltip styles */
+  .tooltip {
+    @apply relative inline-block;
+  }
+  
+  .tooltip-text {
+    @apply invisible absolute z-10 p-2 text-xs bg-gray-900 text-white rounded-md whitespace-nowrap 
+           opacity-0 transition-opacity duration-300;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .tooltip:hover .tooltip-text {
+    @apply visible opacity-100;
+  }
+  
+  /* Animations for loading states */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Timeline component */
+  .timeline {
+    @apply relative ml-6;
+  }
+  
+  .timeline::before {
+    content: '';
+    @apply absolute left-0 h-full w-0.5 bg-gray-700;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    @apply relative mb-8;
+  }
+  
+  .timeline-dot {
+    @apply absolute left-0 w-4 h-4 bg-blue-600 rounded-full z-10;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-content {
+    @apply ml-6 bg-gray-800 p-6 rounded-lg border-l-4 border-blue-600;
+  }
