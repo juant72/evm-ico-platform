@@ -9,28 +9,22 @@ const nextConfig = {
     "chart.js",
     "@coinbase/wallet-sdk",
   ],
-  webpack: (config) => {
-    config.resolve.fallback = {
-      fs: false,
-      net: false,
-      tls: false,
-      os: require.resolve("os-browserify/browser"),
-      http: require.resolve("stream-http"),
-      https: require.resolve("https-browserify"),
-      stream: require.resolve("stream-browserify"),
-      crypto: require.resolve("crypto-browserify"),
-      buffer: require.resolve("buffer"),
-      process: require.resolve("process/browser"),
-    };
-
-    // Add polyfills
-    config.plugins.push(
-      new (require("webpack").ProvidePlugin)({
-        process: "process/browser",
-        Buffer: ["buffer", "Buffer"],
-      })
-    );
-
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: require.resolve("crypto-browserify"),
+        stream: require.resolve("stream-browserify"),
+        os: require.resolve("os-browserify/browser"),
+        http: false,
+        https: false,
+        path: false,
+        pino: false,
+      };
+    }
     return config;
   },
   // Ayuda con problemas de importación de módulos

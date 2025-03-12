@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 /**
  * FAQ component displaying common questions and answers about the ICO
@@ -20,45 +20,55 @@ const FAQ = () => {
   // FAQ data with questions and answers
   const faqItems = [
     {
-      question: 'What is an ICO?',
-      answer: 'An Initial Coin Offering (ICO) is a fundraising method used by cryptocurrency projects to raise capital. Similar to an IPO in the stock market, an ICO allows investors to purchase tokens that may provide utility within the project ecosystem or potentially increase in value over time.'
+      question: "What is an ICO?",
+      answer:
+        "An Initial Coin Offering (ICO) is a fundraising method used by cryptocurrency projects to raise capital. Similar to an IPO in the stock market, an ICO allows investors to purchase tokens that may provide utility within the project ecosystem or potentially increase in value over time.",
     },
     {
-      question: 'How can I participate in the ICO?',
-      answer: 'To participate in our ICO, you need to: 1) Create an account on our platform, 2) Complete KYC/AML verification if required, 3) Connect your cryptocurrency wallet (MetaMask, etc.), 4) Purchase tokens using ETH or other supported cryptocurrencies during the sale period. Detailed instructions are available in the "Participate" section.'
+      question: "How can I participate in the ICO?",
+      answer:
+        'To participate in our ICO, you need to: 1) Create an account on our platform, 2) Complete KYC/AML verification if required, 3) Connect your cryptocurrency wallet (MetaMask, etc.), 4) Purchase tokens using ETH or other supported cryptocurrencies during the sale period. Detailed instructions are available in the "Participate" section.',
     },
     {
-      question: 'What are the minimum and maximum investment amounts?',
-      answer: 'The minimum investment amount is 0.1 ETH (or equivalent). There is no strict maximum for individual investors, but we have implemented fair distribution mechanisms to prevent whale dominance. Specific investment tiers and allocation limits are detailed in the token sale documentation.'
+      question: "What are the minimum and maximum investment amounts?",
+      answer:
+        "The minimum investment amount is 0.1 ETH (or equivalent). There is no strict maximum for individual investors, but we have implemented fair distribution mechanisms to prevent whale dominance. Specific investment tiers and allocation limits are detailed in the token sale documentation.",
     },
     {
-      question: 'When will tokens be distributed?',
-      answer: 'Initial token distribution will occur immediately after the ICO concludes, but most tokens will be subject to a vesting schedule. Typically, a portion of tokens (20-30%) will be immediately available, with the remainder released gradually according to the vesting schedule specified in our tokenomics documentation.'
+      question: "When will tokens be distributed?",
+      answer:
+        "Initial token distribution will occur immediately after the ICO concludes, but most tokens will be subject to a vesting schedule. Typically, a portion of tokens (20-30%) will be immediately available, with the remainder released gradually according to the vesting schedule specified in our tokenomics documentation.",
     },
     {
-      question: 'What is the token vesting schedule?',
-      answer: 'Our vesting schedule is designed to ensure long-term commitment and prevent market flooding. Team tokens are locked for 12 months with a 24-month linear vesting period afterward. Investor tokens typically follow a 3-6 month cliff with 12-18 months of linear vesting, depending on the investment round. Full vesting details are available in the tokenomics section.'
+      question: "What is the token vesting schedule?",
+      answer:
+        "Our vesting schedule is designed to ensure long-term commitment and prevent market flooding. Team tokens are locked for 12 months with a 24-month linear vesting period afterward. Investor tokens typically follow a 3-6 month cliff with 12-18 months of linear vesting, depending on the investment round. Full vesting details are available in the tokenomics section.",
     },
     {
-      question: 'How is the token distribution structured?',
-      answer: 'Our token distribution is structured to ensure sustainable growth and fair representation: 40% for public sale, 15% for team and advisors (with vesting), 15% for platform development and operations, 10% for marketing and partnerships, 10% for ecosystem growth, 5% for liquidity provision, and 5% for community incentives.'
+      question: "How is the token distribution structured?",
+      answer:
+        "Our token distribution is structured to ensure sustainable growth and fair representation: 40% for public sale, 15% for team and advisors (with vesting), 15% for platform development and operations, 10% for marketing and partnerships, 10% for ecosystem growth, 5% for liquidity provision, and 5% for community incentives.",
     },
     {
-      question: 'What blockchain is being used?',
-      answer: 'Our token is deployed on the Ethereum blockchain as an ERC-20 standard token. We've chosen Ethereum for its security, wide adoption, and robust smart contract capabilities. In the future, we plan to implement cross-chain functionality to enhance interoperability.'
+      question: "What blockchain is being used?",
+      answer:
+        "Our token is deployed on the Ethereum blockchain as an ERC-20 standard token. We've chosen Ethereum for its security, wide adoption, and robust smart contract capabilities. In the future, we plan to implement cross-chain functionality to enhance interoperability.",
     },
     {
-      question: 'How does the DAO governance work?',
-      answer: 'Our DAO governance allows token holders to propose and vote on changes to the protocol. Voting power is proportional to the number of tokens held or staked. Proposals require a minimum threshold of support to be considered and a majority vote to pass. The DAO oversees treasury management, protocol upgrades, and strategic decisions.'
+      question: "How does the DAO governance work?",
+      answer:
+        "Our DAO governance allows token holders to propose and vote on changes to the protocol. Voting power is proportional to the number of tokens held or staked. Proposals require a minimum threshold of support to be considered and a majority vote to pass. The DAO oversees treasury management, protocol upgrades, and strategic decisions.",
     },
     {
-      question: 'Is your smart contract audited?',
-      answer: 'Yes, our smart contracts have been audited by multiple reputable security firms including CertiK and OpenZeppelin. The full audit reports are available in our documentation section. We place the highest priority on security and follow industry best practices for smart contract development.'
+      question: "Is your smart contract audited?",
+      answer:
+        "Yes, our smart contracts have been audited by multiple reputable security firms including CertiK and OpenZeppelin. The full audit reports are available in our documentation section. We place the highest priority on security and follow industry best practices for smart contract development.",
     },
     {
-      question: 'What happens if the ICO doesn't reach its funding goal?',
-      answer: 'If the ICO doesn't reach its soft cap, participants will be able to claim a refund of their contribution. If we reach the soft cap but not the hard cap, the project will proceed with the raised amount, and any unsold tokens will be either burned or allocated to the treasury based on community voting.'
-    }
+      question: "What happens if the ICO doesn't reach its funding goal?",
+      answer:
+        "If the ICO doesn't reach its soft cap, participants will be able to claim a refund of their contribution. If we reach the soft cap but not the hard cap, the project will proceed with the raised amount, and any unsold tokens will be either burned or allocated to the treasury based on community voting.",
+    },
   ];
 
   return (
@@ -80,11 +90,13 @@ const FAQ = () => {
                 onClick={() => toggleItem(index)}
                 className="w-full px-6 py-4 text-left focus:outline-none flex justify-between items-center"
               >
-                <h3 className="text-lg font-medium text-white">{item.question}</h3>
+                <h3 className="text-lg font-medium text-white">
+                  {item.question}
+                </h3>
                 <span>
                   <svg
                     className={`w-6 h-6 text-gray-400 transform ${
-                      expandedItems[index] ? 'rotate-180' : 'rotate-0'
+                      expandedItems[index] ? "rotate-180" : "rotate-0"
                     } transition-transform duration-200`}
                     fill="none"
                     viewBox="0 0 24 24"
@@ -102,8 +114,8 @@ const FAQ = () => {
               <div
                 className={`${
                   expandedItems[index]
-                    ? 'max-h-96 opacity-100'
-                    : 'max-h-0 opacity-0'
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
                 } transition-all duration-300 ease-in-out overflow-hidden`}
               >
                 <div className="px-6 pb-4">
@@ -140,9 +152,11 @@ const FAQ = () => {
             </svg>
           </a>
         </div>
-        
+
         <div className="mt-16 pt-8 border-t border-gray-800">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Resources</h3>
+          <h3 className="text-xl font-bold text-white mb-6 text-center">
+            Resources
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a
               href="/docs/whitepaper.pdf"
