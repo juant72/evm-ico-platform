@@ -15,10 +15,10 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.2",
   "dependencies": {
-    "@thirdweb-dev/react": "^3.16.0",
-    "@thirdweb-dev/sdk": "^3.10.67",
+    "@thirdweb-dev/react": "^4.0.99",
+    "@thirdweb-dev/sdk": "^4.0.99",
     "chart.js": "^4.4.8",
-    "ethers": "^5.7.2",
+    "ethers": "5.8.0",
     "next": "^14.2.1",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
@@ -31,7 +31,9 @@
     "@types/node": "^22.13.10",
     "@types/react": "^18.3.0",
     "autoprefixer": "^10.4.21",
+    "has-flag": "^5.0.1",
     "postcss": "^8.5.3",
+    "supports-color": "^10.0.0",
     "tailwindcss": "^4.0.12",
     "typescript": "^5.8.2"
   },
