@@ -1,123 +1,69 @@
-import React, { useState, useEffect } from "react";
-import Chart from "../common/Chart";
-import { ChartData } from "chart.js";
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { useVesting } from "../../hooks/useVesting";
+import { formatTokenAmount } from "../../utils/format";
 
-/**
- * Displays a chart showing token vesting schedule over time
- */
-const VestingChart = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [chartData, setChartData] = useState<ChartData<"bar">>({
-    labels: [],
-    datasets: [],
-  });
+const VestingChart: React.FC = () => {
+  const { vestingSchedule, isLoading } = useVesting();
 
-  useEffect(() => {
-    // Simulate loading data
-    const timer = setTimeout(() => {
-      generateVestingData();
-      setIsLoading(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const generateVestingData = () => {
-    // Generate next 12 months labels
-    const labels = [];
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    for (let i = 0; i < 12; i++) {
-      const month = (currentMonth + i) % 12;
-      labels.push(monthNames[month]);
-    }
-
-    // Sample vesting schedule (cumulative tokens released)
-    const vestingSchedule = [
-      0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 10000,
-    ];
-
-    setChartData({
-      labels,
-      datasets: [
-        {
-          label: "Available Tokens",
-          data: vestingSchedule,
-          backgroundColor: "rgba(59, 130, 246, 0.7)",
-          barPercentage: 0.6,
-        },
-      ],
-    });
-  };
+  if (isLoading) {
+    return (
+      <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 animate-pulse">
+        <div className="h-8 bg-gray-700 rounded w-1/3 mb-4" />
+        <div className="h-64 bg-gray-700 rounded" />
+      </div>
+    );
+  }
 
   return (
-    <div className="relative">
-      {isLoading ? (
-        <div className="h-64 flex items-center justify-center">
-          <div className="animate-spin h-8 w-8 border-4 border-blue-500 rounded-full border-t-transparent"></div>
-        </div>
-      ) : (
-        <>
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <span className="text-sm text-gray-400">Total Allocation</span>
-              <p className="text-white font-medium">10,000 ENC</p>
-            </div>
-            <div>
-              <span className="text-sm text-gray-400">Currently Available</span>
-              <p className="text-white font-medium">1,000 ENC</p>
-            </div>
-          </div>
+    <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      <h2 className="text-xl font-bold text-white mb-6">Vesting Schedule</h2>
 
-          <Chart
-            type="bar"
-            data={chartData}
-            height={250}
-            options={{
-              responsive: true,
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
-              scales: {
-                y: {
-                  title: {
-                    display: true,
-                    text: "Tokens",
-                    color: "#9ca3af",
-                  },
-                },
-              },
-            }}
-          />
-
-          <div className="mt-4 flex justify-between items-center">
-            <div className="text-xs text-gray-400">
-              Next release: <span className="text-blue-400">1,000 ENC</span> on{" "}
-              <span className="text-blue-400">Apr 15</span>
-            </div>
-            <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm text-white transition-colors">
-              Claim Available
-            </button>
-          </div>
-        </>
-      )}
+      <div className="h-64">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={vestingSchedule}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis dataKey="date" stroke="#9CA3AF" tick={{ fill: "#9CA3AF" }} />
+            <YAxis
+              stroke="#9CA3AF"
+              tick={{ fill: "#9CA3AF" }}
+              tickFormatter={(value) => formatTokenAmount(value)}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1F2937",
+                border: "1px solid #374151",
+                borderRadius: "0.375rem",
+              }}
+              labelStyle={{ color: "#9CA3AF" }}
+              itemStyle={{ color: "#fff" }}
+              formatter={(value) => formatTokenAmount(value as number)}
+            />
+            <Line
+              type="monotone"
+              dataKey="locked"
+              stroke="#EF4444"
+              strokeWidth={2}
+              dot={false}
+            />
+            <Line
+              type="monotone"
+              dataKey="unlocked"
+              stroke="#10B981"
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

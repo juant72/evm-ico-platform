@@ -50,7 +50,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           authUrl: "/api/auth",
           domain:
             process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "your-domain.com",
-          loginRedirect: "/dashboard",
         }}
         dAppMeta={{
           name: "Encrypia ICO Platform",
