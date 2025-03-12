@@ -35,7 +35,11 @@
     "@heroicons/react": "^2.1.1",
     "tailwindcss": "^4.0.12",
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3"
+    "postcss": "^8.5.3",
+    "recharts": "^2.12.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/aspect-ratio": "^0.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",

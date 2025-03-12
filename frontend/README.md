@@ -1,26 +1,26 @@
-# Plataforma ICO - Encrypia
+# Encrypia ICO Platform
 
-Una plataforma completa para lanzar y participar en ICOs (Initial Coin Offerings) con funcionalidades avanzadas como tokenomics, gobernanza DAO y distribución de tokens.
+A comprehensive platform for launching and participating in Initial Coin Offerings (ICOs) with advanced features including tokenomics, DAO governance, and token distribution mechanisms.
 
-## Características principales
+## Core Features
 
-### Para inversores
+### For Investors 🤝
 
-- Participación en ICO con múltiples niveles y bonificaciones
-- Dashboard personalizado con seguimiento de inversiones
-- Visualización del calendario de vesting
-- Interfaz para reclamar tokens según calendario de distribución
-- Participación en gobernanza DAO (votaciones, propuestas)
-- Staking de tokens para obtener recompensas
+- Multi-tier ICO participation with bonus structure
+- Personalized investment dashboard
+- Vesting schedule visualization
+- Token claim interface based on distribution schedule
+- DAO governance participation (voting, proposals)
+- Token staking for rewards
 
-### Para creadores de tokens
+### For Token Creators 🚀
 
-- Herramientas para configuración y despliegue de tokens
-- Panel de administración para gestionar la ICO
-- Configuración de tokenomics y vesting
-- Gestión de whitelist y KYC
-- Configuración de parámetros de gobernanza
-- Herramientas para distribución de tokens
+- Token configuration and deployment tools
+- ICO management dashboard
+- Tokenomics and vesting setup
+- Whitelist and KYC management
+- Governance parameter configuration
+- Token distribution tools
 
 ## Tokenomics y distribución
 
@@ -42,22 +42,203 @@ Implementamos un sistema de gobernanza descentralizada:
 - Ejecución automática de propuestas aprobadas
 - Tablero de seguimiento de propuestas activas/pasadas
 
-## Tecnologías utilizadas
+## Technical Stack
 
-- Frontend: Next.js, React, TypeScript, Tailwind CSS
-- Blockchain: Ethereum (Sepolia para desarrollo), Solidity
-- Integraciones: ThirdWeb SDK, Ethers.js, Chart.js
-- Autenticación: ThirdWeb Auth
+### Frontend Infrastructure
 
-## Instalación
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand
+- **Charts**: Chart.js & Recharts
+- **Web3**: ThirdWeb SDK & ethers.js
+
+### Smart Contracts
+
+- **Language**: Solidity ^0.8.19
+- **Framework**: Forge/Foundry
+- **Network**: Ethereum (Sepolia testnet)
+- **Standards**: ERC20, ERC1155
+
+## Getting Started
+
+### Prerequisites
 
 ```bash
-# Instalar dependencias
-pnpm install
+# Install Foundry
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 
-# Ejecutar entorno de desarrollo
+# Install Node.js dependencies
+pnpm install
+```
+
+### Environment Setup
+
+```bash
+# Frontend environment
+cp .env.example .env.local
+
+# Forge environment
+cp .env.example .env
+```
+
+### Development
+
+```bash
+# Start frontend
 pnpm dev
 
-# Construir para producción
-pnpm build
+# Start local blockchain
+anvil
+
+# Deploy contracts
+forge script script/Deploy.s.sol:Deploy \
+  --rpc-url http://localhost:8545 \
+  --broadcast \
+  --private-key $(cat .env | grep PRIVATE_KEY | cut -d '=' -f2)
 ```
+
+### Testing
+
+```bash
+# Smart contract tests
+forge test
+forge test -vv  # Verbose output
+forge test --fork-url $RPC_URL  # Fork testing
+
+# Frontend tests
+pnpm test
+pnpm test:e2e
+```
+
+## Architecture
+
+### Smart Contracts 📄
+
+```solidity
+contracts/
+├── token/
+│   ├── ICOToken.sol
+│   └── Vesting.sol
+├── governance/
+│   ├── Governor.sol
+│   └── TimeLock.sol
+└── distribution/
+    ├── Staking.sol
+    └── Airdrop.sol
+```
+
+### Frontend Structure 🎯
+
+```typescript
+src/
+├── components/
+│   ├── dashboard/
+│   ├── governance/
+│   ├── distribution/
+│   └── ico/
+├── hooks/
+│   ├── useVesting.ts
+│   ├── useGovernance.ts
+│   └── useStaking.ts
+└── pages/
+    ├── dashboard/
+    ├── governance/
+    └── admin/
+```
+
+## Security Features 🔒
+
+- Multi-signature controls
+- Time-locked governance
+- Emergency pause mechanisms
+- Role-based access control
+- Rate limiting protection
+
+## Contract Deployment
+
+```bash
+# Deploy to testnet
+forge script script/Deploy.s.sol:Deploy \
+  --rpc-url $RPC_URL \
+  --broadcast \
+  --verify \
+  --etherscan-api-key $ETHERSCAN_KEY
+
+# Verify contracts
+forge verify-contract \
+  --chain-id 11155111 \
+  --compiler-version v0.8.19 \
+  $CONTRACT_ADDRESS \
+  src/ICOToken.sol:ICOToken \
+  $ETHERSCAN_KEY
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Development Guidelines
+
+### Smart Contract Development
+
+```bash
+# Create new contract
+forge create src/NewContract.sol:NewContract \
+  --private-key $PRIVATE_KEY
+
+# Run gas report
+forge test --gas-report
+
+# Generate documentation
+forge doc
+```
+
+### Frontend Development
+
+```bash
+# Generate new component
+pnpm plop component
+
+# Update contract types
+pnpm types:generate
+
+# Lint code
+pnpm lint
+```
+
+## Support & Resources
+
+- Documentation: `/docs`
+- Issues: GitHub Issues
+- Discord: [Join Community](https://discord.gg/encrypia)
+- Email: support@encrypia.io
+
+## License
+
+MIT License - see [LICENSE](./LICENSE) for details.
+
+## Roadmap 🗺️
+
+### Q2 2024
+
+- [ ] Multi-chain support
+- [ ] Advanced analytics dashboard
+- [ ] Mobile responsive design
+
+### Q3 2024
+
+- [ ] Automated market maker integration
+- [ ] Cross-chain bridge support
+- [ ] Enhanced security features
+
+### Q4 2024
+
+- [ ] Layer 2 integration
+- [ ] Advanced DAO features
+- [ ] DeFi integrations
