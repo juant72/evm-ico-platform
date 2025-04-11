@@ -6,8 +6,8 @@ import {
   coinbaseWallet,
   metamaskWallet,
   walletConnect,
-} from "@thirdweb-dev/react";
-import { Sepolia } from "@thirdweb-dev/chains";
+} from "thirdweb/react";
+import { sepolia } from "thirdweb/chains";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <ThirdwebProvider
-        activeChain={Sepolia}
+        activeChain={sepolia}
         clientId={
           process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "your-client-id"
         }

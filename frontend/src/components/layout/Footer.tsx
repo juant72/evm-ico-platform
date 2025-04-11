@@ -85,8 +85,8 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Connect</h3>
             <div className="mt-4 flex flex-wrap gap-4">
               {socialLinks.map((social) => {
-                // Usar un método alternativo para renderizar los iconos
-                const Icon = social.icon as React.ComponentType<React.SVGProps<SVGSVGElement>>;
+                // Asignar a variable PascalCase para uso en JSX
+                const IconComponent = social.icon; 
                 
                 return (
                   <a 
@@ -97,7 +97,8 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     aria-label={social.label}
                   >
-                    <Icon size={24} aria-hidden="true" />
+                    {/* Renderizar el componente directamente */}
+                    <IconComponent size={24} aria-hidden="true" /> 
                   </a>
                 );
               })}

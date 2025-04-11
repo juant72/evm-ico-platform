@@ -1,12 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react"; 
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import { ConnectButton , useActiveAccount } from "thirdweb/react"; 
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+
+const client = createThirdwebClient({ clientId: "YOUR_CLIENT_ID" });
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const address = useAddress();
+  const account = useActiveAccount();
+  const address = account?.address;
   const router = useRouter();
 
   const navigation = [
@@ -68,19 +71,22 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <ConnectWallet theme="dark" btnTitle="Connect Wallet" />
+            <ConnectButton  theme="dark" btnTitle="Connect Wallet" />
           </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
+              {/* Revertir a uso directo de componentes JSX */}
               {isMenuOpen ? (
-                <RiCloseLine className="h-6 w-6" />
+                <RiCloseLine size={24} aria-hidden="true" /> 
               ) : (
-                <RiMenu3Line className="h-6 w-6" />
+                <RiMenu3Line size={24} aria-hidden="true" /> 
               )}
             </button>
           </div>
