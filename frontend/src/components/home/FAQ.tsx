@@ -45,7 +45,7 @@ const FAQ = () => {
     },
     {
       question: 'What blockchain is being used?',
-      answer: 'Our token is deployed on the Ethereum blockchain as an ERC-20 standard token. We've chosen Ethereum for its security, wide adoption, and robust smart contract capabilities. In the future, we plan to implement cross-chain functionality to enhance interoperability.'
+      answer: 'Our token is deployed on the Ethereum blockchain as an ERC-20 standard token. We\'ve chosen Ethereum for its security, wide adoption, and robust smart contract capabilities. In the future, we plan to implement cross-chain functionality to enhance interoperability.'
     },
     {
       question: 'How does the DAO governance work?',
@@ -56,8 +56,8 @@ const FAQ = () => {
       answer: 'Yes, our smart contracts have been audited by multiple reputable security firms including CertiK and OpenZeppelin. The full audit reports are available in our documentation section. We place the highest priority on security and follow industry best practices for smart contract development.'
     },
     {
-      question: 'What happens if the ICO doesn't reach its funding goal?',
-      answer: 'If the ICO doesn't reach its soft cap, participants will be able to claim a refund of their contribution. If we reach the soft cap but not the hard cap, the project will proceed with the raised amount, and any unsold tokens will be either burned or allocated to the treasury based on community voting.'
+      question: 'What happens if the ICO doesn\'t reach its funding goal?',
+      answer: 'If the ICO doesn\'t reach its soft cap, participants will be able to claim a refund of their contribution. If we reach the soft cap but not the hard cap, the project will proceed with the raised amount, and any unsold tokens will be either burned or allocated to the treasury based on community voting.'
     }
   ];
 
